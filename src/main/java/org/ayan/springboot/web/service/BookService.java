@@ -53,7 +53,7 @@ public class BookService {
 	public List<Book> findAll() {
 		bookDao.openCurrentSession();
 		List<Book> books = bookDao.findAll();
-		System.out.println(books.toString());
+		//System.out.println(books.toString());
 		bookDao.closeCurrentSession();
 		return books;
 	}

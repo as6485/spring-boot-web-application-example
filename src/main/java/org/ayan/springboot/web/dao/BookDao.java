@@ -82,6 +82,7 @@ public class BookDao implements BookDaoInterface<Book, String> {
 	public List<Book> findByTitle(String title) {
 
 		Query qry = getCurrentSession().createQuery("From Book as rb where rb.title  like ?");
+		System.out.println("Searching for " + qry.getQueryString());
 		qry.setString(0, "%"+title+"%");
 		List<Book> books = qry.list();
 		
@@ -95,7 +96,7 @@ public class BookDao implements BookDaoInterface<Book, String> {
 	@SuppressWarnings("unchecked")
 	public List<Book> findAll() {
 		List<Book> books = (List<Book>) getCurrentSession().createQuery("from Book").list();
-		System.out.println(books.toString());
+		//System.out.println(books.toString());
 		return books;
 	}
 
